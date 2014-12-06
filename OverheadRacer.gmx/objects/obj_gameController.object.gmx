@@ -28,6 +28,9 @@
             <string>/// Create Object Instances
 instance_create(0,0,obj_track1InnerGrass);
 instance_create(0,0,obj_track1OuterGrass);
+instance_create(760,76,obj_playerCar);
+obj_playerCar.image_angle -= 180;
+instance_create(728,59,obj_track1startingLine);
 
 </string>
           </argument>

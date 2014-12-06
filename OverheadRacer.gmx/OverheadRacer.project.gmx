@@ -22,6 +22,7 @@
       <object>objects\obj_track1InnerGrass</object>
       <object>objects\pntObj_grass</object>
       <object>objects\obj_track1OuterGrass</object>
+      <object>objects\obj_track1startingLine</object>
     </objects>
     <objects name="Cars">
       <object>objects\pntObj_car</object>
