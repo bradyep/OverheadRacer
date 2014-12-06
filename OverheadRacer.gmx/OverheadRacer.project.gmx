@@ -5,11 +5,32 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound"/>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprites name="Tracks">
+      <sprite>sprites\spr_track1InnerGrass</sprite>
+      <sprite>sprites\spr_track1OuterGrass</sprite>
+      <sprite>sprites\spr_track1StartingLine</sprite>
+    </sprites>
+    <sprites name="Cars">
+      <sprite>sprites\spr_playerCar</sprite>
+    </sprites>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <objects name="objects">
+    <objects name="Tracks">
+      <object>objects\obj_track1InnerGrass</object>
+      <object>objects\pntObj_grass</object>
+      <object>objects\obj_track1OuterGrass</object>
+    </objects>
+    <objects name="Cars">
+      <object>objects\pntObj_car</object>
+      <object>objects\obj_playerCar</object>
+    </objects>
+    <object>objects\obj_gameController</object>
+  </objects>
   <rooms name="rooms">
-    <room>rooms\rm_raceTrack</room>
+    <room>rooms\rm_raceTrack1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
