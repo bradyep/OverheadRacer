@@ -32,9 +32,50 @@ instance_create(760,76,obj_playerCar);
 obj_playerCar.image_angle -= 180;
 instance_create(728,59,obj_track1startingLine);
 instance_create(480,360,obj_instructions);
+instance_create(655,65,obj_startingLights);
+obj_startingLights.image_speed = 0;
+obj_startingLights.image_index = 0;
 
 // Set gameController properties
 gameState = "instructions";
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Player want to move forward with the game
+
+switch (gameState)
+{
+    case "instructions":
+    {
+        // Kick off the race for the first time
+        gameState = "racing";
+        obj_instructions.visible = false;
+        timeline_index = tl_raceCountdown;
+        timeline_running = true;
+    }
+    default:
+        
+}
 
 </string>
           </argument>

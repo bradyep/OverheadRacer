@@ -45,7 +45,11 @@
     </objects>
     <object>objects\obj_gameController</object>
     <object>objects\obj_instructions</object>
+    <object>objects\obj_startingLights</object>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\tl_raceCountdown</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\rm_raceTrack1</room>
   </rooms>
