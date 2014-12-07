@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize Variables Shared By All Cars
+canMove = false;
 accelerationRate = .06;
 decelerationRate = .04;
 frictionRate = .01;
@@ -64,35 +65,42 @@ direction = image_angle;
             <kind>1</kind>
             <string>/// Step Event for All Cars
 
-// Handle Steering
-if (steeringDirection = -1) {
-    if (speed &gt; 3)
-        image_angle += rotationSpeed;
-    else
-        image_angle += (speed / 10 * 3) * rotationSpeed;
+// Can this car even move?
+if (canMove = false) {
+    hspeed = 0; vspeed = 0; speed = 0;
 }
-if (steeringDirection = 1) {
-    if (speed &gt; 3)
-        image_angle -= rotationSpeed;    
-    else
-        image_angle -= (speed / 10 * 3) * rotationSpeed;   
+else
+{
+    // Handle Steering
+    if (steeringDirection = -1) {
+        if (speed &gt; 3)
+            image_angle += rotationSpeed;
+        else
+            image_angle += (speed / 10 * 3) * rotationSpeed;
+    }
+    if (steeringDirection = 1) {
+        if (speed &gt; 3)
+            image_angle -= rotationSpeed;    
+        else
+            image_angle -= (speed / 10 * 3) * rotationSpeed;   
+    }
+    steeringDirection = 0;
+    
+    // Handle Traction
+    var angleDiff = angle_difference(image_angle, direction);
+    direction += angleDiff * tractionMultiplier;
+    
+    // Handle friction
+    var frictionRateToUse = frictionRate;
+    if (isOnGrass) { frictionRateToUse *= 10; }
+    if (brakesApplied)
+        frictionRateToUse *= brakingMultiplier;
+    hspeed *= (1 - frictionRateToUse);
+    vspeed *= (1 - frictionRateToUse);
+    
+    // Reset variables if needed
+    isOnGrass = false;
 }
-steeringDirection = 0;
-
-// Handle Traction
-var angleDiff = angle_difference(image_angle, direction);
-direction += angleDiff * tractionMultiplier;
-
-// Handle friction
-var frictionRateToUse = frictionRate;
-if (isOnGrass) { frictionRateToUse *= 10; }
-if (brakesApplied)
-    frictionRateToUse *= brakingMultiplier;
-hspeed *= (1 - frictionRateToUse);
-vspeed *= (1 - frictionRateToUse);
-
-// Reset variables if needed
-isOnGrass = false;
 
 </string>
           </argument>

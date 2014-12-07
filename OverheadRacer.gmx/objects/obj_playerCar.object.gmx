@@ -31,24 +31,31 @@ direction = image_angle;
 speed += accelerationRate;
 */
 
-// Momentum-based approach to Speed
-
-var angleToMoveTo = image_angle * pi / 180;
-
-var xForce = cos(angleToMoveTo);
-var yForce = sin(angleToMoveTo);
-
-hspeed += xForce * accelerationRate;
-if (hspeed &lt; -maximumSpeed)
-    hspeed = -maximumSpeed;
-if (hspeed &gt; maximumSpeed)
-    hspeed = maximumSpeed;    
+// Check to see if the car should even be moving
+if (canMove = false) {
+    hspeed = 0; vspeed = 0; speed = 0;
+}
+else
+{
+    // Momentum-based approach to Speed
     
-vspeed -= yForce * accelerationRate;
-if (vspeed &lt; -maximumSpeed)
-    vspeed = -maximumSpeed;
-if (vspeed &gt; maximumSpeed)
-    vspeed = maximumSpeed;
+    var angleToMoveTo = image_angle * pi / 180;
+    
+    var xForce = cos(angleToMoveTo);
+    var yForce = sin(angleToMoveTo);
+    
+    hspeed += xForce * accelerationRate;
+    if (hspeed &lt; -maximumSpeed)
+        hspeed = -maximumSpeed;
+    if (hspeed &gt; maximumSpeed)
+        hspeed = maximumSpeed;    
+        
+    vspeed -= yForce * accelerationRate;
+    if (vspeed &lt; -maximumSpeed)
+        vspeed = -maximumSpeed;
+    if (vspeed &gt; maximumSpeed)
+        vspeed = maximumSpeed;
+}
 
 </string>
           </argument>

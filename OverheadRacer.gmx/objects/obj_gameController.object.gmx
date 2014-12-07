@@ -31,6 +31,10 @@ instance_create(0,0,obj_track1OuterGrass);
 instance_create(760,76,obj_playerCar);
 obj_playerCar.image_angle -= 180;
 instance_create(728,59,obj_track1startingLine);
+instance_create(480,360,obj_instructions);
+
+// Set gameController properties
+gameState = "instructions";
 
 </string>
           </argument>

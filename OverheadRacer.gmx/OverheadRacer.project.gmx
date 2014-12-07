@@ -14,6 +14,7 @@
     <sprites name="Cars">
       <sprite>sprites\spr_playerCar</sprite>
     </sprites>
+    <sprite>sprites\spr_instructions</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -29,6 +30,7 @@
       <object>objects\obj_playerCar</object>
     </objects>
     <object>objects\obj_gameController</object>
+    <object>objects\obj_instructions</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_raceTrack1</room>
