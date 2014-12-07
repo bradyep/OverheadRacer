@@ -33,6 +33,10 @@ maximumSpeed = 10;
 rotationSpeed = 4;
 brakingMultiplier = 2.8;
 brakesApplied = false;
+tractionMultiplier = 0.02
+
+// Initialize direction
+direction = image_angle;
 
 </string>
           </argument>
@@ -58,7 +62,20 @@ brakesApplied = false;
             <kind>1</kind>
             <string>/// Step Event for All Cars
 
-// Implement friction
+// Handle Traction
+// direction = image_angle - (direction * tractionMultiplier);
+// direction = image_angle;
+// Try adding or subtracting the traction amount until the two are equal
+/*
+if (image_angle &gt; direction)
+    direction += tractionMultiplier;
+if (image_angle &lt; direction)
+    direction -= tractionMultiplier
+*/
+var angleDiff = angle_difference(image_angle, direction);
+direction += angleDiff * tractionMultiplier;
+
+// Handle friction
 var frictionRateToUse = frictionRate;
 if (brakesApplied)
     frictionRateToUse *= brakingMultiplier;

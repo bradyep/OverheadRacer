@@ -25,7 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var angleToMoveTo = image_angle * pi / 180;
+            <string>// Directional-based approach to Speed
+/*
+direction = image_angle;
+speed += accelerationRate;
+*/
+
+// Momentum-based approach to Speed
+
+var angleToMoveTo = image_angle * pi / 180;
 
 var xForce = cos(angleToMoveTo);
 var yForce = sin(angleToMoveTo);
@@ -99,6 +107,7 @@ vspeed += yForce * decelerationRate;
           <argument>
             <kind>1</kind>
             <string>image_angle -= rotationSpeed;
+// direction = image_angle;
 
 </string>
           </argument>
@@ -123,6 +132,7 @@ vspeed += yForce * decelerationRate;
           <argument>
             <kind>1</kind>
             <string>image_angle += rotationSpeed;
+// direction = image_angle;
 
 </string>
           </argument>
