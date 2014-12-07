@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize Variables Shared By All Cars
+
+// Movement
 canMove = false;
 accelerationRate = .06;
 decelerationRate = .04;
@@ -37,6 +39,9 @@ brakesApplied = false;
 tractionMultiplier = 0.02;
 steeringDirection = 0;
 isOnGrass = false;
+
+// Race Properties
+lapCounter = 1;
 
 // Initialize direction
 direction = image_angle;

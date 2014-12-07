@@ -36,9 +36,39 @@ instance_create(655,65,obj_startingLights);
 obj_startingLights.image_speed = 0;
 obj_startingLights.image_index = 0;
 
+// Setup Checkpoints
+instance_create(212,352,obj_checkpoint1);
+instance_create(744,353,obj_checkpoint2);
+
 // Set gameController properties
 gameState = "instructions";
 countdown = -1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Game Over Dude
+instance_create(480,360,obj_gameOver);
+gameState = "gameOver";
 
 </string>
           </argument>
@@ -66,10 +96,15 @@ countdown = -1;
 countdown -= 1;
 if (countdown = 0)
 {
-    // End Game
+    // End Game. Stop all cars, wait a second. Display Game Over Message and set state
+    with (pntObj_car)
+    {
+        canMove = false;
+        obj_gameController.alarm[1] = 60;
+    }
 }
 else
-    obj_gameController.alarm[0] = 60;
+    obj_gameController.alarm[0] = 60;   // Reset countdown second timer
 
 </string>
           </argument>
@@ -99,6 +134,11 @@ if (countdown &gt; -1)
     draw_set_font(fnt_countdown);
     draw_set_colour(c_white);
     draw_text(480,20,string(countdown));
+    // Draw Lap Counter
+    draw_set_font(fnt_lapsAndStageCounter);
+    draw_text(10,690,string("Lap " + obj_playerCar.lapCounter + "/3"));
+    // If I get around to it, draw current Stage
+    
 }
 
 </string>
@@ -134,9 +174,15 @@ switch (gameState)
         obj_instructions.visible = false;
         timeline_index = tl_raceCountdown;
         timeline_running = true;
+        break;
+    }
+    case "gameOver":
+    {
+        room_restart();
+        break;
     }
     default:
-        
+        // ???
 }
 
 </string>

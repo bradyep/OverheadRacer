@@ -29,6 +29,8 @@
     </sprites>
     <sprite>sprites\spr_instructions</sprite>
     <sprite>sprites\spr_startingLights</sprite>
+    <sprite>sprites\spr_verticalCheckpointLine</sprite>
+    <sprite>sprites\spr_gameOver</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -50,6 +52,9 @@
     <object>objects\obj_gameController</object>
     <object>objects\obj_instructions</object>
     <object>objects\obj_startingLights</object>
+    <object>objects\obj_checkpoint1</object>
+    <object>objects\obj_checkpoint2</object>
+    <object>objects\obj_gameOver</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_raceCountdown</timeline>
