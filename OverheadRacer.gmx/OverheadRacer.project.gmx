@@ -32,6 +32,10 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\fnt_countdown</font>
+    <font>fonts\fnt_lapsAndStageCounter</font>
+  </fonts>
   <objects name="objects">
     <objects name="Tracks">
       <object>objects\obj_track1InnerGrass</object>

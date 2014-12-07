@@ -107,6 +107,8 @@ audio_play_sound(snd_startingLightsYellow, 10, false);
             <string>obj_startingLights.image_index = 4;
 audio_play_sound(snd_startingLightsGreen, 10, false);
 obj_playerCar.canMove = true;
+obj_gameController.countdown = 60;
+obj_gameController.alarm[0] = 60;
 
 </string>
           </argument>
