@@ -106,7 +106,9 @@ vspeed += yForce * decelerationRate;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle -= rotationSpeed;
+            <string>steeringDirection = 1;
+
+// image_angle -= rotationSpeed;
 // direction = image_angle;
 
 </string>
@@ -131,7 +133,8 @@ vspeed += yForce * decelerationRate;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle += rotationSpeed;
+            <string>steeringDirection = -1;
+// image_angle += rotationSpeed;
 // direction = image_angle;
 
 </string>

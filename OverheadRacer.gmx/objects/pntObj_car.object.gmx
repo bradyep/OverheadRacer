@@ -33,7 +33,9 @@ maximumSpeed = 10;
 rotationSpeed = 4;
 brakingMultiplier = 2.8;
 brakesApplied = false;
-tractionMultiplier = 0.02
+tractionMultiplier = 0.02;
+steeringDirection = 0;
+isOnGrass = false;
 
 // Initialize direction
 direction = image_angle;
@@ -62,26 +64,61 @@ direction = image_angle;
             <kind>1</kind>
             <string>/// Step Event for All Cars
 
+// Handle Steering
+if (steeringDirection = -1) {
+    if (speed &gt; 3)
+        image_angle += rotationSpeed;
+    else
+        image_angle += (speed / 10 * 3) * rotationSpeed;
+}
+if (steeringDirection = 1) {
+    if (speed &gt; 3)
+        image_angle -= rotationSpeed;    
+    else
+        image_angle -= (speed / 10 * 3) * rotationSpeed;   
+}
+steeringDirection = 0;
+
 // Handle Traction
-// direction = image_angle - (direction * tractionMultiplier);
-// direction = image_angle;
-// Try adding or subtracting the traction amount until the two are equal
-/*
-if (image_angle &gt; direction)
-    direction += tractionMultiplier;
-if (image_angle &lt; direction)
-    direction -= tractionMultiplier
-*/
 var angleDiff = angle_difference(image_angle, direction);
 direction += angleDiff * tractionMultiplier;
 
 // Handle friction
 var frictionRateToUse = frictionRate;
+if (isOnGrass) { frictionRateToUse *= 10; }
 if (brakesApplied)
     frictionRateToUse *= brakingMultiplier;
 hspeed *= (1 - frictionRateToUse);
 vspeed *= (1 - frictionRateToUse);
 
+// Reset variables if needed
+isOnGrass = false;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="pntObj_grass">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Slow the car down when it is on grass!
+// frictionRate *= 10;
+isOnGrass = true;
 </string>
           </argument>
         </arguments>
