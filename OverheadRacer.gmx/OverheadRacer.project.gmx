@@ -31,6 +31,15 @@
     <sprite>sprites\spr_startingLights</sprite>
     <sprite>sprites\spr_verticalCheckpointLine</sprite>
     <sprite>sprites\spr_gameOver</sprite>
+    <sprites name="Trophies">
+      <sprite>sprites\spr_bronzeTrophy</sprite>
+      <sprite>sprites\spr_silverTrophy</sprite>
+      <sprite>sprites\spr_goldTrophy</sprite>
+      <sprite>sprites\spr_bronzeTrophy2</sprite>
+      <sprite>sprites\spr_silverTrophy2</sprite>
+      <sprite>sprites\spr_goldTrophy2</sprite>
+    </sprites>
+    <sprite>sprites\spr_youWin</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -55,6 +64,12 @@
     <object>objects\obj_checkpoint1</object>
     <object>objects\obj_checkpoint2</object>
     <object>objects\obj_gameOver</object>
+    <object>objects\obj_youWin</object>
+    <objects name="Trophies">
+      <object>objects\obj_bronzeTrophy</object>
+      <object>objects\obj_silverTrophy</object>
+      <object>objects\obj_goldTrophy</object>
+    </objects>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\tl_raceCountdown</timeline>

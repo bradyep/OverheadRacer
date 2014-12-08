@@ -62,6 +62,8 @@ if (canAwardLap)
         {
             canMove = false;
         }
+        // Display Fanfare
+        obj_gameController.alarm[2] = 60;
     }
     else
         obj_playerCar.lapCounter++;

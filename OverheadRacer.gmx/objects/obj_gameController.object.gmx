@@ -49,6 +49,39 @@ countdown = -1;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// You Win
+gameState = "youWin";
+instance_create(480,360,obj_youWin);
+// Figure out trophy type
+if (countdown &gt;= 30)
+    instance_create(480,360,obj_goldTrophy);
+else if (countdown &lt; 30 &amp;&amp; countdown &gt;= 18)
+    instance_create(480,360,obj_silverTrophy);
+else
+    instance_create(480,360,obj_bronzeTrophy);
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -177,6 +210,11 @@ switch (gameState)
         break;
     }
     case "gameOver":
+    {
+        room_restart();
+        break;
+    }
+    case "youWin":
     {
         room_restart();
         break;
