@@ -38,7 +38,9 @@ obj_startingLights.image_index = 0;
 
 // Setup Checkpoints
 instance_create(212,352,obj_checkpoint1);
+obj_checkpoint1.visible = false;
 instance_create(744,353,obj_checkpoint2);
+obj_checkpoint2.visible = false;
 
 // Set gameController properties
 gameState = "instructions";
